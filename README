@@ -1,0 +1,42 @@
+Author: Zi Li
+Date: 9/17/2011
+
+Description:
+Homework for Operating Systems. This program implements executing commands and also some build-in commands like cd, exit, popd, pushd, dirs, path using C. The maximum number of arguments one command can take is 50. But the length of each argument is not limited. Multi-whitespace between arguments is supported.
+
+
+Limitation:
+The maximum number of argument in each command is 50.
+The directory stack has a limitation of storing up to 1024 directories.
+The path list has a limitation of storing up to 1024 directories.
+
+How To Run:
+1. change directory to where the source code is
+2. enter make 
+3. enter ./w4118_sh
+
+Commands:
+1. exit
+exit [number]
+Exit the shell process. Can specify exit number. When the number argument is not a numeric, error will be thrown.
+
+2. cd
+cd [dir]
+The current working directory will be changed to the directory specified by the dir. Throw error when the path is invalid. When there is more than one did only the first one will be taken into account.
+
+3. pushd
+pushd [dir]
+The current working directory will be changed to the directory specified by the did like the cd command. And also push the directory onto the directory stack. Throw error when the directory doesn't exist or the stack is full. When there is more than one dir, only the first one will be taken into account.
+When there is no dir specified, the command swap the top two directories in the stack. And change the working directory to the one on top of the stack.
+
+4.popd
+popd
+Change the current directory to the top entry of the directory stack. And pop the top directory out of the directory stack. For this command, no argument is supported. When argument is specified, the execution will fail.
+
+5. dirs
+dirs
+Print out the content of the directory stack in a top-down manner. No options are supported for this command. Error will be thrown if specify any option.
+
+6. path
+path [+|-] [path]
+Add or remove the specified path from the path list. Print out the content in the path list when no arguments are specified. Throw errors when arguments are invalid.
